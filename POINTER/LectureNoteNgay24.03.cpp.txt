@@ -1,0 +1,185 @@
+# Using Git
+
+# git installation for linux user
+sudo apt update
+sudo apt install git
+# check for git
+git --version
+
+# before using git
+git config --global user.name "[firstname lastname]"
+git config --global user.email [email]
+# remove --global to config for one project
+
+# the most common git command
+git init
+git remote add origin https://github.com/catcd/INT2215-21-22.git
+
+git add [file|directory|--all]
+git commit -m "Message"
+git push origin master
+
+# some others
+git pull
+git clone [url]
+git status
+git diff
+git log
+
+# more advanced
+git rm [file] 
+git branch
+git branch [branch-name]
+git checkout
+git merge [branch]
+git reset [file]
+...
+
+
+
+// POINTER
+// - Has an address
+// - Store a value
+//     + This value is another address
+// - NOTE: has fixed size
+double *dp;
+int *ip;
+int* ip2;
+int * ip3;
+
+// OPERATOR
+// & and *
+// - &: get address of a variable
+// - *: get value a pointer pointed to
+//     + NOTE: only on pointer
+int x, *p, *p2;
+
+// VALID
+p = &x;
+p2 = p;
+*p = 10;
+pp = &p; // type of pp?
+
+// INVALID
+*x
+p = x;
+
+// operator new ~ malloc in C
+// - dynamic allocate memory from heap
+int *p1=NULL, *p2=NULL;
+p1 = new int;
+p2 = new int(10);
+
+*p1 = 1000;
+*p2 = *p1;
+
+
+// CONST
+int x = 0;
+int *p = &x;
+
+const int *p1 = &x;
+int const *p2 = &x;
+int* const p3 = &x;
+const int* const p4 = &x;
+
+// Which one is valid
+p1 = p;
+*p1 = 10;
+
+p2 = p;
+*p2 = 10;
+
+p3 = p;
+*p3 = 10;
+
+p4 = p;
+*p4 = 10;
+
+// ARRAY
+// recall address of array
+int a[5] = {0, 1, 2, 30, 4};
+int *p = a;
+
+// operator +, -, ++, --
+p++; // add size of int to p
+p += 3; // add 3 times size of int to p
+
+// access elements of array
+// p ~ (p+0) -> a[0]
+//     (p+1) -> a[1]
+//     ...
+//     (p+4) -> a[4]
+*(p+0) == a[0]
+*(p+3) == 30
+
+// allocate memory
+int *p = new int[5];
+
+
+// POINTER TO POINTER
+int *p = new int(10);
+int **pp = &p;
+
+// nd array
+// 2d array size mxn
+int **p = new int* [m];
+for (int i=0; i<m; i++) {
+    *(p+i) = new int [n];
+}
+// p+1, p+2, p+3... co lien tiep hay KHONG?
+
+
+// SOME EQV statements
+&a[i] ~ (a+i)
+a[i] ~ *(a+i)
+
+&a[i][j] ~ a[i] + j ~ *(a + i) + j
+a[i][j] ~ *(a[i] + j) ~ *(*(a + i) + j)
+
+
+// FUNCTION
+// pass by pointer
+void increaseByOne(int *p) {
+    *p += 1;
+}
+void increaseAllByOne(int *p, int n) {
+    for (int i=0; i<n; i++) {
+        *(p+i) += 1;
+    }
+}
+
+// return pointer
+// DO THIS
+int* getRand() {
+    int *a = new int;
+    *a =  rand() % 10;
+
+    return a;
+}
+// NEVER DO THAT
+int* getRand() {
+    int a;
+    a =  rand() % 10;
+
+    return &a;
+}
+
+
+// WHAT'S WRONG
+void getFromKeyboard(int *a) {
+    a = new int;
+
+    cin >> *a;
+}
+
+int main() {
+    int *p;
+    getFromKeyboard(p);
+    cout << *p;
+
+    return 0;
+}
+// HOW TO FIX????
+
+// TRY WITH "DOUBLE POINTER"
