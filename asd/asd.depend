@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1586510311 source:e:\school\c++\github c++\lec12-snake\gallery.cpp
+	"Gallery.h"
+	"SDL_utils.h"
+	<SDL_image.h>
+
+1557886526 e:\school\c++\github c++\lec12-snake\gallery.h
+	<vector>
+	<string>
+	<SDL.h>
+
+1557886526 e:\school\c++\github c++\lec12-snake\sdl_utils.h
+	<iostream>
+	<SDL.h>
+
+1557886526 source:e:\school\c++\github c++\lec12-snake\game.cpp
+	<vector>
+	<cassert>
+	<cstdlib>
+	<iostream>
+	"Game.h"
+
+1557886526 e:\school\c++\github c++\lec12-snake\game.h
+	"Snake.h"
+	"Position.h"
+
+1557886526 e:\school\c++\github c++\lec12-snake\snake.h
+	<queue>
+	<vector>
+	"Position.h"
+
+1557886526 e:\school\c++\github c++\lec12-snake\position.h
+
+1557886526 source:e:\school\c++\github c++\lec12-snake\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cmath>
+	<chrono>
+	"SDL_utils.h"
+	"Game.h"
+	"Gallery.h"
+
+1585725042 source:e:\school\c++\github c++\lec12-snake\sdl_utils.cpp
+	<iostream>
+	<SDL.h>
+
+1557886526 source:e:\school\c++\github c++\lec12-snake\snake.cpp
+	"Snake.h"
+	"Game.h"
+	<iostream>
+
